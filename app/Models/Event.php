@@ -10,9 +10,18 @@ class Event extends Model
     use HasFactory;
 
     protected $fillable = [
+
         'title',
+        'description',
         'event_date',
         'location',
-        'status'
+        'poster',
+        'status',
+        'prodi_code'
     ];
+
+    public function registrations()
+    {
+        return $this->hasMany(Registration::class);
+    }
 }
