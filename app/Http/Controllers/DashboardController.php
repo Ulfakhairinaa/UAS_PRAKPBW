@@ -41,7 +41,7 @@ class DashboardController extends Controller
             ->where('status', 'done')
             ->count();
 
-        return view('dashboard', compact(
+        return view('admin.dashboard', compact(
             'events',
             'status',
             'totalEvents',
@@ -52,20 +52,61 @@ class DashboardController extends Controller
         ));
     }
 
-    public function participants()
+    public function participants(Request $request)
     {
         session([
             'role' => 'admin',
             'admin_code' => '70',
             'admin_prodi' => 'Informatika'
         ]);
-        $participants = Registration::with(['user', 'event'])
-            ->whereHas('event', function ($query) {
-                $query->where('prodi_code', session('admin_code'));
-            })
-            ->latest()
+
+        $events = Event::where('prodi_code', session('admin_code'))
+            ->orderBy('event_date', 'asc')
             ->get();
 
-        return view('admin.participants', compact('participants'));
+        $selectedEvent = null;
+        $participants = collect();
+
+        if ($request->event_id) {
+            $selectedEvent = Event::where('prodi_code', session('admin_code'))
+                ->where('id', $request->event_id)
+                ->first();
+
+            if ($selectedEvent) {
+                $participants = Registration::with('user')
+                    ->where('event_id', $selectedEvent->id)
+                    ->latest()
+                    ->get();
+            }
+        }
+
+        return view('admin.participants', compact(
+            'events',
+            'selectedEvent',
+            'participants'
+        ));
+    }
+
+    public function showParticipants(Event $event)
+    {
+    session([
+        'role' => 'admin',
+        'admin_code' => '70',
+        'admin_prodi' => 'Informatika'
+    ]);
+
+    if ($event->prodi_code !== session('admin_code')) {
+        abort(403);
+    }
+
+    $participants = Registration::with('user')
+        ->where('event_id', $event->id)
+        ->latest()
+        ->get();
+
+    return view('admin.participant-detail', compact(
+        'event',
+        'participants'
+    ));
     }
 }
