@@ -104,3 +104,4 @@ class EventController extends Controller
         return redirect('/admin/events')->with('success', 'Event berhasil dihapus.');
     }
 }
+
