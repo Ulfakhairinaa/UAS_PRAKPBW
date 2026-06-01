@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->date('event_date');
             $table->string('location');
+            $table->string('status')->default('upcoming');
             $table->timestamps();
         });
     }
