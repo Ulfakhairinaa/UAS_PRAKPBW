@@ -7,5 +7,6 @@ Route::get('/', function () {
     return redirect('/register');
 });
 
+Route::get('/login', [AuthController::class, 'showLogin']);
 Route::get('/register', [AuthController::class, 'showRegister']);
 Route::post('/register', [AuthController::class, 'register']);
