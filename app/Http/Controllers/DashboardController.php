@@ -41,6 +41,12 @@ class DashboardController extends Controller
             ->where('status', 'done')
             ->count();
 
+        $upcomingEvents = Event::where('prodi_code', session('admin_code'))
+            ->whereDate('event_date', '>=', now())
+            ->orderBy('event_date', 'asc')
+            ->take(5)
+            ->get();
+
         return view('admin.dashboard', compact(
             'events',
             'status',
@@ -48,7 +54,8 @@ class DashboardController extends Controller
             'totalParticipants',
             'upcomingCount',
             'ongoingCount',
-            'doneCount'
+            'doneCount',
+            'upcomingEvents'
         ));
     }
 
