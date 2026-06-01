@@ -17,15 +17,25 @@
             <h2 class="fw-bold mb-2">Login User</h2>
             <p class="text-muted mb-4">Masuk sebagai peserta event SaweuMIPA.</p>
 
-            <form>
+            @if(session('error'))
+                <div class="alert alert-danger">{{ session('error') }}</div>
+            @endif
+
+            @if(session('success'))
+                <div class="alert alert-success">{{ session('success') }}</div>
+            @endif
+
+            <form method="POST" action="/user-login">
+                @csrf
+
                 <div class="mb-3">
                     <label class="form-label">Email</label>
-                    <input type="email" class="form-control rounded-3">
+                    <input type="email" name="email" class="form-control rounded-3" required>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Password</label>
-                    <input type="password" class="form-control rounded-3">
+                    <input type="password" name="password" class="form-control rounded-3" required>
                 </div>
 
                 <button class="btn btn-primary w-100 rounded-3 py-2">
@@ -47,28 +57,33 @@
                 Masuk sebagai admin prodi/BEM MIPA.
             </p>
 
-            <form>
+            <form method="POST" action="/admin-login">
+                @csrf
 
                 <div class="mb-3">
                     <label class="form-label">Kode Prodi</label>
 
-                    <select class="form-control rounded-3">
-                        <option>70 - Informatika</option>
-                        <option>40 - Biologi</option>
-                        <option>80 - Statistika</option>
-                        <option>30 - Kimia</option>
-                        <option>10 - Matematika</option>
-                        <option>90 - Farmasi</option>
-                        <option>50 - Manajemen Informatika</option>
-                        <option>20 - Fisika</option>
-                        <option>00 - BEM MIPA</option>
+                    <select name="prodi_code" class="form-control rounded-3" required>
+                        <option value="">Pilih Kode Prodi</option>
+                        <option value="70">70 - Informatika</option>
+                        <option value="40">40 - Biologi</option>
+                        <option value="80">80 - Statistika</option>
+                        <option value="30">30 - Kimia</option>
+                        <option value="10">10 - Matematika</option>
+                        <option value="90">90 - Farmasi</option>
+                        <option value="50">50 - Manajemen Informatika</option>
+                        <option value="20">20 - Fisika</option>
+                        <option value="00">00 - BEM MIPA</option>
                     </select>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Password Admin</label>
 
-                    <input type="password" class="form-control rounded-3">
+                    <input type="password"
+                           name="admin_password"
+                           class="form-control rounded-3"
+                           required>
                 </div>
 
                 <button class="btn btn-light w-100 rounded-3 py-2 fw-semibold">
