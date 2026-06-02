@@ -16,7 +16,7 @@
         <a class="navbar-brand fw-bold text-primary" href="/events">SaweuMIPA</a>
 
         <div>
-            <a href="/my-events" class="btn btn-outline-primary btn-sm">Event Saya</a>
+            <a href="/my-events" class="nav-link-custom">Event Saya</a>
 
             <form method="POST" action="/logout" class="d-inline">
                 @csrf

@@ -13,74 +13,204 @@
 
 <nav class="navbar bg-white shadow-sm">
     <div class="container">
-        <a href="/events" class="navbar-brand fw-bold text-primary">SaweuMIPA</a>
+
+        <a href="/events" class="navbar-brand fw-bold text-primary">
+            SaweuMIPA
+        </a>
 
         <form method="POST" action="/logout">
             @csrf
-            <button class="btn btn-danger btn-sm">Logout</button>
+            <button class="btn btn-danger btn-sm">
+                Logout
+            </button>
         </form>
+
     </div>
 </nav>
 
 <div class="container py-5">
 
-    <h2 class="fw-bold mb-4">Event Saya</h2>
+    <h2 class="fw-bold mb-4">
+        Event Saya
+    </h2>
 
     @if(session('success'))
-        <div class="alert alert-success">{{ session('success') }}</div>
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
     @endif
 
-    <div class="card border-0 shadow-sm rounded-4">
-        <div class="card-body p-4">
-            <table class="table align-middle">
-                <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Nama</th>
-                    <th>Instansi</th>
-                    <th>Event</th>
-                    <th>Status</th>
-                </tr>
-                </thead>
+    {{-- COUNTDOWN EVENT TERDEKAT --}}
 
-                <tbody>
+    @php
+        $upcomingRegistration = $registrations
+            ->filter(function($registration){
+                return \Carbon\Carbon::parse(
+                    $registration->event->event_date
+                )->isFuture();
+            })
+            ->sortBy(function($registration){
+                return $registration->event->event_date;
+            })
+            ->first();
+    @endphp
 
-                @forelse ($registrations as $registration)
+    @if($upcomingRegistration)
 
-                <tr>
+        @php
+            $eventDate = \Carbon\Carbon::parse(
+                $upcomingRegistration->event->event_date
+            );
 
-                    <td>{{ $loop->iteration }}</td>
+            $daysLeft = now()->diffInDays($eventDate);
+        @endphp
 
-                    <td>{{ $registration->full_name }}</td>
+        <div class="countdown-box mb-4">
 
-                    <td>{{ $registration->institution }}</td>
+            <div class="row align-items-center">
 
-                    <td>{{ $registration->event->title }}</td>
+                <div class="col-md-4 text-center">
 
-                    <td>
-                        <span class="badge bg-success">
-                            Terdaftar
-                        </span>
-                    </td>
+                    <h1 class="count-number">
+                        {{ $daysLeft }}
+                    </h1>
 
-                </tr>
+                    <p class="mb-0">
+                        Hari Menuju
+                    </p>
 
-                @empty
+                </div>
 
-                <tr>
-                    <td colspan="5"
-                        class="text-center text-muted">
+                <div class="col-md-8">
 
-                        Kamu belum mendaftar event.
+                    <h3 class="fw-bold">
+                        {{ $upcomingRegistration->event->title }}
+                    </h3>
 
-                    </td>
-                </tr>
+                    <p class="mb-1">
+                        📅 {{ $eventDate->format('d M Y') }}
+                    </p>
 
-                @endforelse
+                    <p class="mb-0">
+                        Event terdekat yang sudah kamu daftarkan.
+                    </p>
 
-                </tbody>
-            </table>
+                </div>
+
+            </div>
+
         </div>
+
+    @endif
+
+
+    <div class="row">
+
+    @forelse($registrations as $registration)
+
+        @php
+
+            $eventDate = \Carbon\Carbon::parse(
+                $registration->event->event_date
+            );
+
+            $daysLeft = now()->diffInDays(
+                $eventDate,
+                false
+            );
+
+        @endphp
+
+        <div class="col-md-6 mb-4">
+
+            <div class="my-event-card">
+
+                <div class="d-flex justify-content-between align-items-start">
+
+                    <div>
+
+                        <h4 class="my-event-title">
+                            {{ $registration->event->title }}
+                        </h4>
+
+                        <p class="text-muted mb-2">
+                            {{ $registration->institution }}
+                        </p>
+
+                    </div>
+
+                    <span class="badge bg-success">
+                        Terdaftar
+                    </span>
+
+                </div>
+
+                <hr>
+
+                <p class="mb-2">
+                    📅
+                    {{ $eventDate->format('d M Y') }}
+                </p>
+
+                <p class="mb-3">
+                    👤
+                    {{ $registration->full_name }}
+                </p>
+
+                @if($daysLeft > 0)
+
+                    <div class="countdown-small">
+
+                        ⏳ {{ $daysLeft }} Hari Lagi
+
+                    </div>
+
+                @elseif($daysLeft == 0)
+
+                    <div class="countdown-today">
+
+                        🎉 Hari Ini
+
+                    </div>
+
+                @else
+
+                    <div class="countdown-finished">
+
+                        ✔ Event Selesai
+
+                    </div>
+
+                @endif
+
+            </div>
+
+        </div>
+
+    @empty
+
+        <div class="col-12">
+
+            <div class="card border-0 shadow-sm rounded-4">
+
+                <div class="card-body text-center py-5">
+
+                    <h5 class="mb-2">
+                        Belum Ada Event
+                    </h5>
+
+                    <p class="text-muted mb-0">
+                        Kamu belum mendaftar event apa pun.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    @endforelse
+
     </div>
 
 </div>
