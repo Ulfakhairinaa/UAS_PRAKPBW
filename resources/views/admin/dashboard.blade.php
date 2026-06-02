@@ -86,6 +86,86 @@
         </div>
     </div>
 
+    <div class="upcoming-events-section mb-4">
+
+        <div class="section-title-row">
+            <div>
+                <h4 class="section-title">
+                    <i class="bi bi-calendar-event"></i>
+                    Upcoming Events
+                </h4>
+                <p class="section-subtitle">Event terdekat yang akan datang</p>
+            </div>
+        </div>
+
+        <div id="eventCountdownCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3500" data-bs-pause="hover">
+
+            <div class="carousel-inner">
+
+                @forelse($upcomingEvents as $index => $event)
+
+                    @php
+                        $daysLeft = now()->startOfDay()->diffInDays(\Carbon\Carbon::parse($event->event_date)->startOfDay(), false);
+                    @endphp
+
+                    <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
+                        <div class="event-countdown-card">
+
+                            <div class="event-countdown-icon">
+                                <i class="bi bi-calendar-event"></i>
+                            </div>
+
+                            <div class="event-countdown-content">
+
+                                <div class="countdown-text">
+                                    <span class="countdown-number">{{ $daysLeft }}</span>
+                                    <span class="countdown-label">Hari Menuju</span>
+                                </div>
+
+                                <h2 class="event-countdown-title">
+                                    {{ $event->title }}
+                                </h2>
+
+                                <div class="event-countdown-date">
+                                    <i class="bi bi-calendar3"></i>
+                                    {{ \Carbon\Carbon::parse($event->event_date)->format('d M Y') }}
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                @empty
+
+                    <div class="carousel-item active">
+                        <div class="event-countdown-card empty-countdown">
+                            <h2>Tidak ada upcoming event</h2>
+                            <p>Belum ada event terdekat untuk ditampilkan.</p>
+                        </div>
+                    </div>
+
+                @endforelse
+
+            </div>
+
+            <button class="carousel-control-prev" type="button"
+                data-bs-target="#eventCountdownCarousel"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+
+            <button class="carousel-control-next" type="button"
+                data-bs-target="#eventCountdownCarousel"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+
+        </div>
+
+    </div>
+
+
     <div class="card-modern">
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h4 class="fw-bold mb-0">Daftar Event</h4>
