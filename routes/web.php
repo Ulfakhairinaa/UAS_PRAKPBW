@@ -16,6 +16,7 @@ use App\Http\Controllers\UserEventController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\DashboardController;
 
+
 Route::get('/', function () {
     return redirect('/login');
 });
