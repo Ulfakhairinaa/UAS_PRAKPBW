@@ -4,10 +4,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 
 Route::get('/', function () {
-    return redirect('/register');
+    return redirect('/login');
 });
 
-Route::get('/login', [AuthController::class, 'showLogin']);
+Route::get('/login', function () {
+    return view('auth.login');
+});
+
 Route::get('/register', [AuthController::class, 'showRegister']);
 
 Route::post('/register', [AuthController::class, 'register']);
