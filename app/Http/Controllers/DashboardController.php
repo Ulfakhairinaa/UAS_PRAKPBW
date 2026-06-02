@@ -10,12 +10,6 @@ class DashboardController extends Controller
 {
     public function index(Request $request)
     {
-
-        session([
-            'role' => 'admin',
-            'admin_code' => '70',
-            'admin_prodi' => 'Informatika'
-        ]);
         $status = $request->status ?? 'upcoming';
 
         $events = Event::where('prodi_code', session('admin_code'))
@@ -61,12 +55,6 @@ class DashboardController extends Controller
 
     public function participants(Request $request)
     {
-        session([
-            'role' => 'admin',
-            'admin_code' => '70',
-            'admin_prodi' => 'Informatika'
-        ]);
-
         $events = Event::where('prodi_code', session('admin_code'))
             ->orderBy('event_date', 'asc')
             ->get();
@@ -96,11 +84,6 @@ class DashboardController extends Controller
 
     public function showParticipants(Event $event)
     {
-    session([
-        'role' => 'admin',
-        'admin_code' => '70',
-        'admin_prodi' => 'Informatika'
-    ]);
 
     if ($event->prodi_code !== session('admin_code')) {
         abort(403);
