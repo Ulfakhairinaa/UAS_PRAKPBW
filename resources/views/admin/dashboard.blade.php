@@ -42,9 +42,6 @@
         <h1 class="dashboard-title">
             Selamat Datang, Admin {{ session('admin_prodi') }}
         </h1>
-        <!-- <p class="dashboard-subtitle">
-            Kelola event prodi dengan mudah.
-        </p> -->
     </div>
 
     <div class="row g-4 mb-4">
