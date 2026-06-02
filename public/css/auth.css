@@ -5,12 +5,13 @@ body {
     color: white;
 }
 
+/* PAGE LAYOUT */
 .page {
     display: flex;
     height: 100vh;
 }
 
-/* LEFT */
+/* LEFT SIDE */
 .left {
     flex: 1;
     padding: 80px;
@@ -20,15 +21,88 @@ body {
 }
 
 .brand {
-    font-size: 48px;
-    font-weight: 700;
+    position: relative;
+    width: fit-content;
 }
 
+.saweu {
+    font-family: 'Outfit', sans-serif;
+    font-size: 72px;
+    font-weight: 800;
+
+    background: linear-gradient(
+        90deg,
+        #374151,
+        #6b7280,
+        #10b981,
+        #6ee7b7,
+        #ecfdf5
+    );
+
+    background-size: 300% auto;
+
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    animation: shine 4s linear infinite;
+}
+
+.mipa {
+    font-family: 'Dancing Script', cursive;
+    font-size: 82px;
+    font-weight: 700;
+
+    margin-top: -25px;
+    margin-left: 140px;
+
+    background: linear-gradient(
+        90deg,
+        #374151,
+        #6b7280,
+        #10b981,
+        #6ee7b7,
+        #ecfdf5
+    );
+
+    background-size: 300% auto;
+
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    animation: shine 4s linear infinite;
+}
+
+@keyframes shine {
+    from {
+        background-position: 300% center;
+    }
+
+    to {
+        background-position: 0% center;
+    }
+}
+
+/* SUBTITLE */
 .desc {
     margin-top: 10px;
     opacity: 0.85;
+    animation: fadeUp 1s ease-out;
 }
 
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 0.85;
+        transform: translateY(0);
+    }
+}
+
+/* INFO BOX */
 .highlight {
     margin-top: 30px;
     padding: 20px;
@@ -36,9 +110,15 @@ body {
     background: rgba(255,255,255,0.08);
     border-radius: 12px;
     width: 70%;
+    animation: floatBox 3s ease-in-out infinite;
 }
 
-/* RIGHT */
+@keyframes floatBox {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+}
+
+/* RIGHT SIDE */
 .right {
     flex: 1;
     display: flex;
@@ -46,6 +126,7 @@ body {
     align-items: center;
 }
 
+/* CARD */
 .card {
     width: 380px;
     background: white;
@@ -90,6 +171,7 @@ body {
     margin-bottom: 12px;
 }
 
+/* FORM ANIMATION */
 .form {
     display: none;
     flex-direction: column;
@@ -102,7 +184,6 @@ body {
     display: flex;
     opacity: 1;
     transform: translateY(0);
-    pointer-events: auto;
 }
 
 /* INPUT */
@@ -112,6 +193,8 @@ input, select {
     border: 1px solid #ddd;
     border-radius: 10px;
     outline: none;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* BUTTON */
@@ -124,6 +207,7 @@ button {
     border-radius: 10px;
     cursor: pointer;
     transition: 0.2s;
+    font-weight: 600;
 }
 
 button:hover {
@@ -143,34 +227,12 @@ a {
     text-decoration: none;
 }
 
+/* HIDDEN FIX */
 .hidden {
     display: none !important;
 }
 
+/* REGISTER FORM HELPERS */
 .form-group {
     margin-bottom: 12px;
-}
-
-input {
-    width: 100%;
-    box-sizing: border-box;
-}
-
-/* REGISTER BUTTON FIX */
-.btn-submit {
-    width: 100%;
-    padding: 12px;
-    margin-top: 10px;
-    border: none;
-    background: #10b981;
-    color: white;
-    border-radius: 10px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-.btn-submit:hover {
-    opacity: 0.9;
-    transform: translateY(-1px);
 }

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="/css/auth.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Outfit:wght@700;800&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -15,7 +15,10 @@
 
     <!-- LEFT -->
     <div class="left">
-        <div class="brand">SAWEU MIPA</div>
+    <div class="brand">
+        <div class="saweu">SAWEU</div>
+        <div class="mipa">MIPA</div>
+    </div>
         <div class="desc">Event Management System Fakultas MIPA</div>
 
         <div class="highlight">
