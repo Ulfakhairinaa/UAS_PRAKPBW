@@ -3,6 +3,7 @@
 body{
     background:#f5f7ff;
     font-family:'Segoe UI',sans-serif;
+    font-family:'Poppins',sans-serif;
 }
 
 /* ===== NAVBAR ===== */
@@ -40,22 +41,63 @@ body{
 /* ===== HERO ===== */
 
 .hero-section{
-    background:white;
-    border-radius:24px;
-    padding:60px;
-    margin-bottom:40px;
-    box-shadow:0 10px 30px rgba(0,0,0,.04);
+    background:linear-gradient(
+        135deg,
+        #6c63ff,
+        #8b85ff
+    );
+
+    color:white;
+
+    border-radius:30px;
+
+    padding:80px 70px;
+
+    margin-bottom:50px;
+
+    overflow:hidden;
+
+    position:relative;
+}
+
+.hero-section::before{
+    content:'';
+
+    position:absolute;
+
+    width:350px;
+    height:350px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.08);
+
+    top:-120px;
+    right:-100px;
+}
+
+.hero-section::after{
+    content:'';
+
+    position:absolute;
+
+    width:220px;
+    height:220px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.05);
+
+    bottom:-70px;
+    left:-70px;
 }
 
 .hero-section h1{
-    font-size:2.7rem;
-    font-weight:700;
-    color:#222;
+    color:white;
 }
 
 .hero-section p{
-    color:#777;
-    font-size:1.05rem;
+    color:rgba(255,255,255,.85);
 }
 
 /* ===== EVENT CARD ===== */
@@ -75,8 +117,14 @@ body{
 }
 
 .card-img-top{
-    height:220px !important;
+    height:240px !important;
     object-fit:cover;
+
+    transition:.4s;
+}
+
+.card:hover .card-img-top{
+    transform:scale(1.05);
 }
 
 .badge{
@@ -85,8 +133,12 @@ body{
 }
 
 .badge.bg-primary{
-    background:#ecebff !important;
-    color:#6c63ff !important;
+    background:#ede9ff !important;
+    color:#5b4df5 !important;
+
+    font-weight:600;
+
+    padding:8px 14px;
 }
 
 .card-body h5{
@@ -94,11 +146,25 @@ body{
     margin-bottom:15px;
 }
 
+.card.border-0{
+    transition:.3s;
+}
+
+.card.border-0:hover{
+    transform:translateY(-8px);
+
+    box-shadow:
+        0 20px 40px rgba(108,99,255,.15)
+        !important;
+}
+
+
 /* ===== DETAIL EVENT ===== */
 
-.detail-card{
-    border-radius:24px;
-    overflow:hidden;
+.detail-layout{
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:30px;
 }
 
 .detail-poster{
@@ -107,9 +173,11 @@ body{
     object-fit:cover;
 }
 
-.detail-title{
-    font-size:2.2rem;
-    font-weight:700;
+.event-info-box{
+    background:white;
+    padding:25px;
+    border-radius:24px;
+    box-shadow:0 10px 30px rgba(0,0,0,.05);
 }
 
 .detail-info{
@@ -119,7 +187,32 @@ body{
     margin-bottom:12px;
 }
 
+.detail-title{
+    font-size:2rem;
+    font-weight:700;
+}
+
+@media (max-width: 992px){
+
+    .detail-layout{
+        grid-template-columns:1fr;
+    }
+
+}
+
 /* ===== EVENT SAYA ===== */
+.my-event-card{
+    background:white;
+
+    border-radius:22px;
+
+    padding:24px;
+
+    margin-bottom:20px;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.05);
+}
 
 .my-event-title{
     font-weight:600;
@@ -144,6 +237,21 @@ body{
     color:#1f8f4e !important;
 }
 
+.event-info-box{
+    background:white;
+
+    border-radius:24px;
+
+    padding:25px;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.05);
+
+    position:sticky;
+
+    top:30px;
+}
+
 /* ===== ALERT ===== */
 
 .alert-success{
@@ -161,9 +269,20 @@ body{
 /* ===== REGISTER EVENT ===== */
 
 .register-card{
-    border-radius:24px;
-    box-shadow:0 8px 25px rgba(0,0,0,.05);
+    border-radius:28px;
+
+    border:none;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.06);
 }
+
+.register-title{
+    font-size:2rem;
+
+    font-weight:700;
+}
+
 
 .register-title{
     font-size:2rem;
@@ -177,12 +296,17 @@ body{
 }
 
 .form-control{
-    border-radius:14px;
-    padding:12px 15px;
-    border:1px solid #ddd;
+    border-radius:16px;
+
+    min-height:55px;
+
+    border:2px solid #eef0ff;
 }
 
 .form-control:focus{
     border-color:#6c63ff;
-    box-shadow:0 0 0 0.15rem rgba(108,99,255,.15);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(108,99,255,.12);
 }
