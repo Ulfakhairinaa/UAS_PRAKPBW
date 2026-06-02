@@ -12,9 +12,13 @@ Route::put('/admin/events/{event}', [EventController::class, 'update']);
 Route::delete('/admin/events/{event}', [EventController::class, 'destroy']);
 
 
+use App\Http\Controllers\UserEventController;
+use App\Http\Controllers\RegistrationController;
+
 Route::get('/', function () {
     return redirect('/login');
 });
+
 
 Route::get('/login', function () {
     return view('auth.login');
@@ -26,4 +30,13 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::post('/user-login', [AuthController::class, 'userLogin']);
 Route::post('/admin-login', [AuthController::class, 'adminLogin']);
 Route::post('/logout', [AuthController::class, 'logout']);
+
+
+Route::get('/events', [UserEventController::class, 'index']);
+
+Route::get('/events/{event}', [UserEventController::class, 'show']);
+
+Route::post('/events/{event}/register', [RegistrationController::class, 'store']);
+
+Route::get('/my-events', [RegistrationController::class, 'myEvents']);
 
