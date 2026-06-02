@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/user-event.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body class="bg-light">
@@ -32,35 +34,50 @@
         <div class="card-body p-4">
             <table class="table align-middle">
                 <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Event</th>
-                        <th>Tanggal</th>
-                        <th>Lokasi</th>
-                        <th>Status</th>
-                    </tr>
+                <tr>
+                    <th>#</th>
+                    <th>Nama</th>
+                    <th>Instansi</th>
+                    <th>Event</th>
+                    <th>Status</th>
+                </tr>
                 </thead>
 
                 <tbody>
-                    @forelse ($registrations as $registration)
-                        <tr>
-                            <td>{{ $loop->iteration }}</td>
-                            <td>{{ $registration->event->title }}</td>
-                            <td>{{ $registration->event->event_date }}</td>
-                            <td>{{ $registration->event->location }}</td>
-                            <td>
-                                <span class="badge bg-success">
-                                    Terdaftar
-                                </span>
-                            </td>
-                        </tr>
-                    @empty
-                        <tr>
-                            <td colspan="5" class="text-center text-muted">
-                                Kamu belum mendaftar event.
-                            </td>
-                        </tr>
-                    @endforelse
+
+                @forelse ($registrations as $registration)
+
+                <tr>
+
+                    <td>{{ $loop->iteration }}</td>
+
+                    <td>{{ $registration->full_name }}</td>
+
+                    <td>{{ $registration->institution }}</td>
+
+                    <td>{{ $registration->event->title }}</td>
+
+                    <td>
+                        <span class="badge bg-success">
+                            Terdaftar
+                        </span>
+                    </td>
+
+                </tr>
+
+                @empty
+
+                <tr>
+                    <td colspan="5"
+                        class="text-center text-muted">
+
+                        Kamu belum mendaftar event.
+
+                    </td>
+                </tr>
+
+                @endforelse
+
                 </tbody>
             </table>
         </div>

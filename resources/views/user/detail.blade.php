@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/user-event.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body class="bg-light">
@@ -17,36 +19,81 @@
 </nav>
 
 <div class="container py-5">
-    <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
 
-        @if ($event->poster)
-            <img src="{{ asset('storage/' . $event->poster) }}" style="height: 360px; object-fit: cover;">
-        @endif
+    @if(session('error'))
+        <div class="alert alert-danger mb-4">
+            {{ session('error') }}
+        </div>
+    @endif
 
-        <div class="card-body p-5">
-            @if(session('error'))
-                <div class="alert alert-danger">{{ session('error') }}</div>
+    <div class="detail-layout">
+
+        <!-- KIRI -->
+        <div>
+
+            @if ($event->poster)
+                <img
+                    src="{{ asset('storage/' . $event->poster) }}"
+                    class="detail-poster rounded-4 mb-4">
             @endif
 
-            <span class="badge bg-primary mb-3">{{ ucfirst($event->status) }}</span>
+            <div class="card border-0">
+                <div class="card-body p-4">
 
-            <h1 class="fw-bold">{{ $event->title }}</h1>
+                    <span class="badge bg-primary mb-3">
+                        {{ ucfirst($event->status) }}
+                    </span>
 
-            <p class="text-muted">
-                {{ $event->description }}
-            </p>
+                    <h1 class="detail-title mb-3">
+                        {{ $event->title }}
+                    </h1>
 
-            <p><strong>Tanggal:</strong> {{ $event->event_date }}</p>
-            <p><strong>Lokasi:</strong> {{ $event->location }}</p>
+                    <p class="text-muted">
+                        {{ $event->description }}
+                    </p>
 
-            <form method="POST" action="/events/{{ $event->id }}/register">
-                @csrf
-                <button class="btn btn-primary rounded-3 px-4">
-                    Daftar Event
-                </button>
-            </form>
+                </div>
+            </div>
+
         </div>
+
+        <!-- KANAN -->
+        <div>
+
+            <div class="event-info-box">
+
+                <h4 class="fw-bold mb-4">
+                    Informasi Event
+                </h4>
+
+                <div class="detail-info">
+                    <strong>Tanggal Event</strong><br>
+                    {{ $event->event_date }}
+                </div>
+
+                <div class="detail-info">
+                    <strong>Lokasi</strong><br>
+                    {{ $event->location }}
+                </div>
+
+                <div class="detail-info">
+                    <strong>Status</strong><br>
+                    {{ ucfirst($event->status) }}
+                </div>
+
+                <a href="/events/{{ $event->id }}/register"
+                   class="btn btn-primary w-100 mt-3">
+
+                    Daftar Event
+
+                </a>
+
+            </div>
+
+        </div>
+
     </div>
+
 </div>
 
 </body>

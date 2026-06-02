@@ -1,0 +1,312 @@
+/* ===== GLOBAL ===== */
+
+body{
+    background:#f5f7ff;
+    font-family:'Segoe UI',sans-serif;
+    font-family:'Poppins',sans-serif;
+}
+
+/* ===== NAVBAR ===== */
+
+.navbar{
+    background:white !important;
+    padding:14px 0;
+    box-shadow:0 2px 12px rgba(0,0,0,0.05);
+}
+
+.navbar-brand{
+    color:#6c63ff !important;
+    font-weight:700;
+    font-size:1.4rem;
+}
+
+.btn-primary{
+    background:#6c63ff;
+    border:none;
+}
+
+.btn-primary:hover{
+    background:#5a52e0;
+}
+
+.btn-outline-primary{
+    border-color:#6c63ff;
+    color:#6c63ff;
+}
+
+.btn-outline-primary:hover{
+    background:#6c63ff;
+}
+
+/* ===== HERO ===== */
+
+.hero-section{
+    background:linear-gradient(
+        135deg,
+        #6c63ff,
+        #8b85ff
+    );
+
+    color:white;
+
+    border-radius:30px;
+
+    padding:80px 70px;
+
+    margin-bottom:50px;
+
+    overflow:hidden;
+
+    position:relative;
+}
+
+.hero-section::before{
+    content:'';
+
+    position:absolute;
+
+    width:350px;
+    height:350px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.08);
+
+    top:-120px;
+    right:-100px;
+}
+
+.hero-section::after{
+    content:'';
+
+    position:absolute;
+
+    width:220px;
+    height:220px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.05);
+
+    bottom:-70px;
+    left:-70px;
+}
+
+.hero-section h1{
+    color:white;
+}
+
+.hero-section p{
+    color:rgba(255,255,255,.85);
+}
+
+/* ===== EVENT CARD ===== */
+
+.card{
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+}
+
+.card.border-0{
+    border-radius:22px !important;
+    overflow:hidden;
+    box-shadow:0 8px 25px rgba(0,0,0,.05) !important;
+}
+
+.card-img-top{
+    height:240px !important;
+    object-fit:cover;
+
+    transition:.4s;
+}
+
+.card:hover .card-img-top{
+    transform:scale(1.05);
+}
+
+.badge{
+    padding:8px 12px;
+    border-radius:30px;
+}
+
+.badge.bg-primary{
+    background:#ede9ff !important;
+    color:#5b4df5 !important;
+
+    font-weight:600;
+
+    padding:8px 14px;
+}
+
+.card-body h5{
+    font-weight:700;
+    margin-bottom:15px;
+}
+
+.card.border-0{
+    transition:.3s;
+}
+
+.card.border-0:hover{
+    transform:translateY(-8px);
+
+    box-shadow:
+        0 20px 40px rgba(108,99,255,.15)
+        !important;
+}
+
+
+/* ===== DETAIL EVENT ===== */
+
+.detail-layout{
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:30px;
+}
+
+.detail-poster{
+    width:100%;
+    height:420px;
+    object-fit:cover;
+}
+
+.event-info-box{
+    background:white;
+    padding:25px;
+    border-radius:24px;
+    box-shadow:0 10px 30px rgba(0,0,0,.05);
+}
+
+.detail-info{
+    background:#f8f9ff;
+    padding:15px;
+    border-radius:14px;
+    margin-bottom:12px;
+}
+
+.detail-title{
+    font-size:2rem;
+    font-weight:700;
+}
+
+@media (max-width: 992px){
+
+    .detail-layout{
+        grid-template-columns:1fr;
+    }
+
+}
+
+/* ===== EVENT SAYA ===== */
+.my-event-card{
+    background:white;
+
+    border-radius:22px;
+
+    padding:24px;
+
+    margin-bottom:20px;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.05);
+}
+
+.my-event-title{
+    font-weight:600;
+    margin-bottom:5px;
+}
+
+.table{
+    margin-bottom:0;
+}
+
+.table thead{
+    background:#f7f7ff;
+}
+
+.table th{
+    color:#555;
+    font-weight:600;
+}
+
+.badge.bg-success{
+    background:#dff8e8 !important;
+    color:#1f8f4e !important;
+}
+
+.event-info-box{
+    background:white;
+
+    border-radius:24px;
+
+    padding:25px;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.05);
+
+    position:sticky;
+
+    top:30px;
+}
+
+/* ===== ALERT ===== */
+
+.alert-success{
+    border:none;
+    background:#dff8e8;
+    color:#1f8f4e;
+}
+
+.alert-danger{
+    border:none;
+    background:#ffe5e5;
+    color:#d32f2f;
+}
+
+/* ===== REGISTER EVENT ===== */
+
+.register-card{
+    border-radius:28px;
+
+    border:none;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.06);
+}
+
+.register-title{
+    font-size:2rem;
+
+    font-weight:700;
+}
+
+
+.register-title{
+    font-size:2rem;
+    font-weight:700;
+    color:#222;
+}
+
+.form-label{
+    font-weight:600;
+    color:#444;
+}
+
+.form-control{
+    border-radius:16px;
+
+    min-height:55px;
+
+    border:2px solid #eef0ff;
+}
+
+.form-control:focus{
+    border-color:#6c63ff;
+
+    box-shadow:
+        0 0 0 4px
+        rgba(108,99,255,.12);
+}

@@ -14,6 +14,7 @@ Route::delete('/admin/events/{event}', [EventController::class, 'destroy']);
 
 use App\Http\Controllers\UserEventController;
 use App\Http\Controllers\RegistrationController;
+use App\Http\Controllers\DashboardController;
 
 Route::get('/', function () {
     return redirect('/login');
@@ -36,15 +37,15 @@ Route::get('/events', [UserEventController::class, 'index']);
 
 Route::get('/events/{event}', [UserEventController::class, 'show']);
 
+Route::get('/events/{event}/register', [RegistrationController::class, 'create']);
+
 Route::post('/events/{event}/register', [RegistrationController::class, 'store']);
 
 Route::get('/my-events', [RegistrationController::class, 'myEvents']);
-
-
-use App\Http\Controllers\DashboardController;
 
 Route::get('/dashboard', [DashboardController::class, 'index']);
 
 Route::get('/admin/participants', [DashboardController::class, 'participants']);
 Route::get('/admin/participants/{event}', [DashboardController::class, 'showParticipants']);
+
 
