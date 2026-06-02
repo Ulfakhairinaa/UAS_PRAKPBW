@@ -38,53 +38,53 @@
 
 <div class="main">
 
-    <div class="d-flex justify-content-between align-items-center mb-5">
-        <div>
-            <h2 class="dashboard-title">
-                Dashboard {{ session('admin_prodi') }}
-            </h2>
-            <p class="dashboard-subtitle">
-                Kelola event prodi dengan mudah.
-            </p>
-        </div>
+    <div class="dashboard-header-center">
+        <h1 class="dashboard-title">
+            Selamat Datang, Admin {{ session('admin_prodi') }}
+        </h1>
+        <!-- <p class="dashboard-subtitle">
+            Kelola event prodi dengan mudah.
+        </p> -->
     </div>
 
     <div class="row g-4 mb-4">
-        <div class="col-md-3">
-            <div class="card-modern">
-                <div class="card-label">Total Event</div>
-                <div class="card-value">{{ $totalEvents }}</div>
-            </div>
-        </div>
 
-        <div class="col-md-3">
-            <div class="card-modern">
-                <div class="card-label">Participants</div>
-                <div class="card-value">{{ $totalParticipants }}</div>
-            </div>
-        </div>
-
-        <div class="col-md-2">
-            <div class="card-modern">
-                <div class="card-label">Upcoming</div>
-                <div class="card-value">{{ $upcomingCount }}</div>
-            </div>
-        </div>
-
-        <div class="col-md-2">
-            <div class="card-modern">
-                <div class="card-label">Ongoing</div>
-                <div class="card-value">{{ $ongoingCount }}</div>
-            </div>
-        </div>
-
-        <div class="col-md-2">
-            <div class="card-modern">
-                <div class="card-label">Done</div>
-                <div class="card-value">{{ $doneCount }}</div>
-            </div>
+    <div class="col-md">
+        <div class="card-modern">
+            <div class="card-label">Total Event</div>
+            <div class="card-value">{{ $totalEvents }}</div>
         </div>
     </div>
+
+    <div class="col-md">
+        <div class="card-modern">
+            <div class="card-label">Participants</div>
+            <div class="card-value">{{ $totalParticipants }}</div>
+        </div>
+    </div>
+
+    <div class="col-md">
+        <div class="card-modern">
+            <div class="card-label">Upcoming</div>
+            <div class="card-value">{{ $upcomingCount }}</div>
+        </div>
+    </div>
+
+    <div class="col-md">
+        <div class="card-modern">
+            <div class="card-label">Ongoing</div>
+            <div class="card-value">{{ $ongoingCount }}</div>
+        </div>
+    </div>
+
+    <div class="col-md">
+        <div class="card-modern">
+            <div class="card-label">Done</div>
+            <div class="card-value">{{ $doneCount }}</div>
+        </div>
+    </div>
+
+</div>
 
     <div class="upcoming-events-section mb-4">
 
