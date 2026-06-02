@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/user-event.css') }}">
 </head>
 
 <body class="bg-light">
@@ -39,12 +40,10 @@
             <p><strong>Tanggal:</strong> {{ $event->event_date }}</p>
             <p><strong>Lokasi:</strong> {{ $event->location }}</p>
 
-            <form method="POST" action="/events/{{ $event->id }}/register">
-                @csrf
-                <button class="btn btn-primary rounded-3 px-4">
-                    Daftar Event
-                </button>
-            </form>
+            <a href="/events/{{ $event->id }}/register"
+                class="btn btn-primary rounded-3 px-4">
+                Daftar Event
+            </a>
         </div>
     </div>
 </div>

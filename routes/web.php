@@ -12,6 +12,11 @@ Route::get('/events', [UserEventController::class, 'index']);
 
 Route::get('/events/{event}', [UserEventController::class, 'show']);
 
+Route::get('/events/{event}/register', [RegistrationController::class, 'create']);
+
 Route::post('/events/{event}/register', [RegistrationController::class, 'store']);
 
 Route::get('/my-events', [RegistrationController::class, 'myEvents']);
+
+
+

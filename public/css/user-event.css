@@ -1,0 +1,188 @@
+/* ===== GLOBAL ===== */
+
+body{
+    background:#f5f7ff;
+    font-family:'Segoe UI',sans-serif;
+}
+
+/* ===== NAVBAR ===== */
+
+.navbar{
+    background:white !important;
+    padding:14px 0;
+    box-shadow:0 2px 12px rgba(0,0,0,0.05);
+}
+
+.navbar-brand{
+    color:#6c63ff !important;
+    font-weight:700;
+    font-size:1.4rem;
+}
+
+.btn-primary{
+    background:#6c63ff;
+    border:none;
+}
+
+.btn-primary:hover{
+    background:#5a52e0;
+}
+
+.btn-outline-primary{
+    border-color:#6c63ff;
+    color:#6c63ff;
+}
+
+.btn-outline-primary:hover{
+    background:#6c63ff;
+}
+
+/* ===== HERO ===== */
+
+.hero-section{
+    background:white;
+    border-radius:24px;
+    padding:60px;
+    margin-bottom:40px;
+    box-shadow:0 10px 30px rgba(0,0,0,.04);
+}
+
+.hero-section h1{
+    font-size:2.7rem;
+    font-weight:700;
+    color:#222;
+}
+
+.hero-section p{
+    color:#777;
+    font-size:1.05rem;
+}
+
+/* ===== EVENT CARD ===== */
+
+.card{
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+}
+
+.card.border-0{
+    border-radius:22px !important;
+    overflow:hidden;
+    box-shadow:0 8px 25px rgba(0,0,0,.05) !important;
+}
+
+.card-img-top{
+    height:220px !important;
+    object-fit:cover;
+}
+
+.badge{
+    padding:8px 12px;
+    border-radius:30px;
+}
+
+.badge.bg-primary{
+    background:#ecebff !important;
+    color:#6c63ff !important;
+}
+
+.card-body h5{
+    font-weight:700;
+    margin-bottom:15px;
+}
+
+/* ===== DETAIL EVENT ===== */
+
+.detail-card{
+    border-radius:24px;
+    overflow:hidden;
+}
+
+.detail-poster{
+    width:100%;
+    height:420px;
+    object-fit:cover;
+}
+
+.detail-title{
+    font-size:2.2rem;
+    font-weight:700;
+}
+
+.detail-info{
+    background:#f8f9ff;
+    padding:15px;
+    border-radius:14px;
+    margin-bottom:12px;
+}
+
+/* ===== EVENT SAYA ===== */
+
+.my-event-title{
+    font-weight:600;
+    margin-bottom:5px;
+}
+
+.table{
+    margin-bottom:0;
+}
+
+.table thead{
+    background:#f7f7ff;
+}
+
+.table th{
+    color:#555;
+    font-weight:600;
+}
+
+.badge.bg-success{
+    background:#dff8e8 !important;
+    color:#1f8f4e !important;
+}
+
+/* ===== ALERT ===== */
+
+.alert-success{
+    border:none;
+    background:#dff8e8;
+    color:#1f8f4e;
+}
+
+.alert-danger{
+    border:none;
+    background:#ffe5e5;
+    color:#d32f2f;
+}
+
+/* ===== REGISTER EVENT ===== */
+
+.register-card{
+    border-radius:24px;
+    box-shadow:0 8px 25px rgba(0,0,0,.05);
+}
+
+.register-title{
+    font-size:2rem;
+    font-weight:700;
+    color:#222;
+}
+
+.form-label{
+    font-weight:600;
+    color:#444;
+}
+
+.form-control{
+    border-radius:14px;
+    padding:12px 15px;
+    border:1px solid #ddd;
+}
+
+.form-control:focus{
+    border-color:#6c63ff;
+    box-shadow:0 0 0 0.15rem rgba(108,99,255,.15);
+}
