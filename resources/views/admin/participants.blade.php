@@ -63,7 +63,7 @@
 
     <div class="table-modern mb-4">
         <div class="p-4">
-            <h4 class="fw-bold mb-3">Daftar Event</h4>
+            <h4 class="content-title">Daftar Event</h4>
 
             <table class="table align-middle">
                 <thead>

@@ -56,7 +56,7 @@
         </div>
 
         <a href="/admin/participants"
-           class="btn-modern text-decoration-none">
+           class="btn-back">
             Kembali
         </a>
 
