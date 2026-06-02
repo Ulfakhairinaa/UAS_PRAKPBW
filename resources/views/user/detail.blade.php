@@ -14,7 +14,7 @@
 <nav class="navbar bg-white shadow-sm">
     <div class="container">
         <a href="/events" class="navbar-brand fw-bold text-primary">SaweuMIPA</a>
-        <a href="/my-events" class="btn btn-outline-primary btn-sm">Event Saya</a>
+        <a href="/my-events" class="nav-link-custom">Event Saya</a>
     </div>
 </nav>
 
