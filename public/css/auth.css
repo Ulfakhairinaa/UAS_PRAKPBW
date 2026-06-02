@@ -5,7 +5,6 @@ body {
     color: white;
 }
 
-/* PAGE LAYOUT */
 .page {
     display: flex;
     height: 100vh;
@@ -84,7 +83,6 @@ body {
     }
 }
 
-/* SUBTITLE */
 .desc {
     margin-top: 10px;
     opacity: 0.85;
@@ -102,7 +100,6 @@ body {
     }
 }
 
-/* INFO BOX */
 .highlight {
     margin-top: 30px;
     padding: 20px;
@@ -126,7 +123,6 @@ body {
     align-items: center;
 }
 
-/* CARD */
 .card {
     width: 380px;
     background: white;
@@ -136,7 +132,6 @@ body {
     box-shadow: 0 25px 60px rgba(0,0,0,0.35);
 }
 
-/* TAB */
 .tab {
     display: flex;
     gap: 10px;
@@ -163,7 +158,6 @@ body {
     color: white;
 }
 
-/* INFO TEXT */
 .info {
     text-align: center;
     font-size: 13px;
@@ -171,7 +165,6 @@ body {
     margin-bottom: 12px;
 }
 
-/* FORM ANIMATION */
 .form {
     display: none;
     flex-direction: column;
@@ -186,7 +179,6 @@ body {
     transform: translateY(0);
 }
 
-/* INPUT */
 input, select {
     margin-top: 10px;
     padding: 12px;
@@ -197,7 +189,6 @@ input, select {
     box-sizing: border-box;
 }
 
-/* BUTTON */
 button {
     margin-top: 15px;
     padding: 12px;
@@ -215,7 +206,6 @@ button:hover {
     transform: translateY(-1px);
 }
 
-/* REGISTER TEXT */
 .small {
     text-align: center;
     font-size: 13px;
@@ -227,12 +217,10 @@ a {
     text-decoration: none;
 }
 
-/* HIDDEN FIX */
 .hidden {
     display: none !important;
 }
 
-/* REGISTER FORM HELPERS */
 .form-group {
     margin-bottom: 12px;
 }
